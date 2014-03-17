@@ -1,6 +1,7 @@
 find_package(FREEGLUT QUIET)
 find_package(GLUT QUIET)
 find_package(CUDA QUIET)
+find_package(Oculus QUIET)
 
 # All examples depend on Pangolin GUI
 if(BUILD_PANGOLIN_GUI AND (FREEGLUT_FOUND OR GLUT_FOUND OR ANDROID) )
@@ -25,4 +26,8 @@ if(BUILD_PANGOLIN_GUI AND (FREEGLUT_FOUND OR GLUT_FOUND OR ANDROID) )
         add_subdirectory(VBODisplay)
       endif(CUDA_FOUND) 
     endif(BUILD_PANGOLIN_VARS)
+
+    if(Oculus_FOUND)
+      add_subdirectory(Oculus)
+    endif(Oculus_FOUND)
 endif()
